@@ -6,11 +6,16 @@ import (
 )
 
 func main() {
-
 	var a, b, c string
-	fmt.Scan(&a)
-	fmt.Scan(&b)
-	fmt.Scan(&c)
+	if _, err := fmt.Scan(&a); err != nil {
+		return
+	}
+	if _, err := fmt.Scan(&b); err != nil {
+		return
+	}
+	if _, err := fmt.Scan(&c); err != nil {
+		return
+	}
 	numA, errA := strconv.Atoi(a)
 	if errA != nil {
 		fmt.Println("Invalid first operand")
