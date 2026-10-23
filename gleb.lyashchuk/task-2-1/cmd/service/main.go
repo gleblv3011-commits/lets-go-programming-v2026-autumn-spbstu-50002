@@ -1,60 +1,32 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	if !scanner.Scan() {
-		return
-	}
-
-	n, err := strconv.Atoi(strings.TrimSpace(scanner.Text()))
-	if err != nil {
-		return
-	}
+	var n int
+	fmt.Scan(&n)
 
 	for i := 0; i < n; i++ {
-		if !scanner.Scan() {
-			return
-		}
-
-		k, err := strconv.Atoi(strings.TrimSpace(scanner.Text()))
-		if err != nil {
-			return
-		}
+		var k int
+		fmt.Scan(&k)
 
 		minTemp := 15
 		maxTemp := 30
 
 		for j := 0; j < k; j++ {
-			if !scanner.Scan() {
-				return
-			}
-			line := scanner.Text()
-			parts := strings.Fields(line)
-			if len(parts) != 2 {
-				continue
-			}
-
-			op := parts[0]
-			val, err := strconv.Atoi(parts[1])
-			if err != nil {
-				continue
-			}
+			var op string
+			var temp int
+			fmt.Scan(&op, &temp)
 
 			if op == ">=" {
-				if val > minTemp {
-					minTemp = val
+				if temp > minTemp {
+					minTemp = temp
 				}
 			} else if op == "<=" {
-				if val < maxTemp {
-					maxTemp = val
+				if temp < maxTemp {
+					maxTemp = temp
 				}
 			}
 
