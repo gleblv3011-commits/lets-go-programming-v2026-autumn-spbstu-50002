@@ -6,13 +6,14 @@ import (
 
 func main() {
 	var departmentsCount int
+
 	if _, err := fmt.Scan(&departmentsCount); err != nil {
 		return
 	}
 
-	for i := range departmentsCount {
-		_ = i
+	for range departmentsCount {
 		var employeesCount int
+
 		if _, err := fmt.Scan(&employeesCount); err != nil {
 			return
 		}
@@ -20,8 +21,9 @@ func main() {
 		minTemp := 15
 		maxTemp := 30
 
-		for j := 0; j < employeesCount; j++ {
+		for range employeesCount {
 			var operator string
+
 			var targetTemp int
 
 			if _, err := fmt.Scan(&operator, &targetTemp); err != nil {
